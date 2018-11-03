@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class AbstractController {
+public abstract class AbstractController {
 
     @ExceptionHandler
     protected void handleIllegalArgumentException(IllegalArgumentException e, HttpServletResponse response) throws IOException {
