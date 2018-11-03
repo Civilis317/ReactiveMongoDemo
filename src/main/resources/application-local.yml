@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    include:
+    - "default"
+  data:
+    mongodb:
+      host: "localhost"
+      port: 27017
+      authentication-database: "customerdb"
+      database: "customerdb"
+      username: "customer"
+      password: "welcome1"
+
+logging:
+  level:
+    net.playground.reactive.mongodbdemo: "DEBUG"
+
+server:
+  port: 9080
+
+management:
+  endpoint:
+    logfile:
+      external-file: "logs/mongodemo.log"
+

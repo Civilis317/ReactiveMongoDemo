@@ -1,0 +1,24 @@
+app:
+  name: "@project.artifactId@"
+  version: "@project.version@"
+
+logging:
+  level:
+    ROOT: "INFO"
+    org.springframework: "INFO"
+    net.playground.reactive.mongodbdemo: "INFO"
+
+server:
+  port: 8080
+  servlet:
+    context-path: "/mongodemo"
+
+# for actuator endpoints (spring boot 2)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    logfile:
+      external-file: "/var/log/mongodemo.log"

@@ -1,0 +1,20 @@
+version: "3"
+services:
+
+  mongodb:
+    image: "317/mongodb:1.0"
+    container_name: "317_mongodb"
+    environment:
+      - AUTH=yes
+      - MONGODB_ADMIN_USER=admin
+      - MONGODB_ADMIN_PASS=welcome1
+      - MONGODB_APPLICATION_DATABASE=customerdb
+      - MONGODB_APPLICATION_USER=customer
+      - MONGODB_APPLICATION_PASS=welcome1
+    ports:
+      - "27017:27017"
+    volumes:
+      - ~/Infra/db/mongodb/data:/data/db
+
+networks:
+  local_mongodb_network:
