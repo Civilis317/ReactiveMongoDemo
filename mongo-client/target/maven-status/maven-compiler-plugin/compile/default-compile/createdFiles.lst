@@ -1,0 +1,8 @@
+net/playground/reactive/demo/mongo/client/rest/controller/CustomerController.class
+net/playground/reactive/demo/mongo/client/database/StorageService.class
+net/playground/reactive/demo/mongo/client/MongoClientApplication.class
+net/playground/reactive/demo/mongo/client/rest/controller/AbstractController.class
+net/playground/reactive/demo/mongo/client/database/CustomerRepository.class
+net/playground/reactive/demo/mongo/client/model/Customer.class
+net/playground/reactive/demo/mongo/client/rest/model/RestResponse.class
+net/playground/reactive/demo/mongo/client/rest/validation/RequestValidator.class
