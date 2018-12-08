@@ -7,6 +7,8 @@ import net.playground.reactive.demo.mongo.client.rest.RequestValidator;
 import net.playground.reactive.demo.mongo.client.storage.TweetRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.mongodb.core.CollectionOptions;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,9 +17,20 @@ public class TweetController extends AbstractController {
     private static final Logger logger = LoggerFactory.getLogger(TweetController.class);
 
     private final TweetRepository repository;
+    private final MongoOperations mongoOperations;
 
-    public TweetController(TweetRepository repository) {
+    public TweetController(TweetRepository repository, MongoOperations mongoOperations) {
         this.repository = repository;
+        this.mongoOperations = mongoOperations;
+}
+
+    @GetMapping(value = "/create")
+    public boolean reCreateCollection() {
+        if(mongoOperations.collectionExists("tweets")) {
+            mongoOperations.dropCollection("tweets");
+        }
+        mongoOperations.createCollection("tweets", CollectionOptions.empty().capped().size(9999999L).maxDocuments(100L));
+        return true;
     }
 
     @GetMapping(value = "/get")
